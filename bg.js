@@ -14,7 +14,6 @@ var config = {
 var bg_img1;
 var bg_img2;
 var bg1_on = true;
-var timer;
 
 var game = new Phaser.Game(config);
 var timer = new Phaser.Time.TimerEvent();
@@ -38,12 +37,6 @@ function update (time)
 {
     console.log("Time elapsed: " + time);
     timer = time % 5015;
-    if (time == 0){
-        console.log("Changing to bg1");
-        bg_img1.setVisible(true);
-        bg_img1.setVisible(false);
-        bg1_on = true;
-    }
     if(timer >= 5000){
         if(bg1_on == true){
             console.log("Changing to bg2");
@@ -52,10 +45,10 @@ function update (time)
             bg1_on = false;
         }
         else{
-            
+            console.log("Changing to bg1");
+            bg_img1.setVisible(true);
+            bg_img1.setVisible(false);
+            bg1_on = true;
         }
-    }
-    if (time>= 10000){
-        time=0;
     }
 }
